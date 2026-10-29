@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DrPH Field Attachment Progress Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <h1>DrPH Field Attachment Progress Dashboard</h1>
+      <p>FK8815 / FK8825 • Progress Monitoring for Academic & Field Supervision</p>
+    </div>
+    <div class="updated">Last updated: <span id="lastUpdated">—</span></div>
+  </header>
+
+  <main class="container">
+    <section class="intro card">
+      <h2>Overview</h2>
+      <p>
+        This dashboard is a progress-monitoring aid for the official UKM logbook and activities compilation.
+        It does not replace the formal signed logbook, supervisor comments, reflections, or required signatures.
+      </p>
+    </section>
+
+    <section class="kpi-grid">
+      <div class="card kpi">
+        <span class="label">Service Areas Covered</span>
+        <span class="value" id="kpiAreas">0 / 8</span>
+      </div>
+      <div class="card kpi">
+        <span class="label">Activities Completed</span>
+        <span class="value" id="kpiActivities">0 / 40</span>
+      </div>
+      <div class="card kpi">
+        <span class="label">Discussion Hours</span>
+        <span class="value" id="kpiHours">0 / 32</span>
+      </div>
+      <div class="card kpi">
+        <span class="label">Competencies Demonstrated</span>
+        <span class="value" id="kpiCompetencies">0</span>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Public Health Service Area Progress</h2>
+        <div class="table-wrap">
+          <table id="areaTable">
+            <thead>
+              <tr>
+                <th>Service Area</th>
+                <th>Activities</th>
+                <th>Discussion</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Activity Completion</h2>
+        <canvas id="areaChart"></canvas>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h2>Competency Coverage</h2>
+        <div class="table-wrap">
+          <table id="domainTable">
+            <thead>
+              <tr>
+                <th>Domain</th>
+                <th>Unique competencies demonstrated</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Competency Level Exposure</h2>
+        <canvas id="levelChart"></canvas>
+        <p class="footnote">Counts reflect activities mapped to L1, L2 and L3 competency levels.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Priority Gaps & Next Attention</h2>
+      <div id="gapBox" class="gap-grid"></div>
+    </section>
+
+    <section class="card">
+      <div class="section-head">
+        <h2>Activity Portfolio</h2>
+        <div class="filters">
+          <select id="filterArea">
+            <option value="">All service areas</option>
+          </select>
+          <select id="filterStatus">
+            <option value="">All statuses</option>
+            <option value="Completed">Completed</option>
+            <option value="Ongoing">Ongoing</option>
+            <option value="Planned">Planned</option>
+          </select>
+          <input id="searchBox" type="search" placeholder="Search activity..." />
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table id="activityTable">
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Service Area</th>
+              <th>Activity</th>
+              <th>Domain / Competency</th>
+              <th>Level</th>
+              <th>Discussion (h)</th>
+              <th>Evidence</th>
+              <th>Reflection</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Supervisor Discussion Progress</h2>
+      <div class="progress-list" id="discussionProgress"></div>
+    </section>
+
+    <section class="card">
+      <h2>Reflection Completion by Service Area</h2>
+      <div class="progress-list" id="reflectionProgress"></div>
+    </section>
+
+    <section class="card notes">
+      <h2>How to use this dashboard</h2>
+      <ol>
+        <li>Edit <strong>logbook.csv</strong> whenever you add an activity.</li>
+        <li>Use one row per mapped competency if a single activity demonstrates multiple competencies.</li>
+        <li>Keep identifiable patient/respondent data and confidential internal documents off GitHub.</li>
+        <li>Use the dashboard for supervision meetings, but retain the official UKM logbook for formal comments, signatures and assessment.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
