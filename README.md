@@ -1,6 +1,6 @@
 # DrPH Field Attachment Progress Dashboard
 
-This is a GitHub Pages-ready progress dashboard for UKM Doctor of Public Health Field Attachment Training I & II (FK8815/FK8825).
+This is a GitHub Pages-ready progress dashboard for UKM Doctor of Public Health Field Attachment Training I (FK8815).
 
 ## What it tracks
 - 8 public health service areas
@@ -11,9 +11,6 @@ This is a GitHub Pages-ready progress dashboard for UKM Doctor of Public Health 
 - Evidence status
 - Reflection completion
 - Priority gaps
-
-## Important
-This dashboard is a progress-monitoring aid only. It does not replace the official UKM logbook, activities compilation, supervisor comments, signatures, official stamps or formal assessment requirements.
 
 ## Files
 - `index.html` – dashboard page
@@ -63,22 +60,3 @@ Use L1, L2 or L3.
 5. Select `main` and `/ (root)`.
 6. Save.
 7. Share the generated GitHub Pages link with your academic and field supervisors.
-
-## Confidentiality
-Do not upload:
-- patient identifiers
-- respondent identifiers
-- IC / passport numbers
-- phone numbers
-- confidential PKD documents
-- internal restricted reports
-- identifiable clinical information
-
-Use generic evidence descriptions such as `Programme report available` rather than uploading sensitive evidence directly.
-
-## Suggested supervisor use
-### Academic supervisor
-Focus on competency coverage, L1-L3 levels, reflections and gaps.
-
-### Field supervisor
-Focus on activities completed, role, evidence, discussion hours and areas requiring further field exposure.
